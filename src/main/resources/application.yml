@@ -3,3 +3,15 @@ server:
 spring:
   aop:
     auto: true #启动aop配置
+  datasource:
+    master:
+      url: jdbc:oracle:thin:@//39.105.67.69:1521/PSRMPDB
+      username: PORTAL_UAT
+      password: PORTAL_UAT
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+
+    slave:
+      url: jdbc:oracle:thin:@//39.105.67.69:1521/PSRMPDB
+      username: CISADM
+      password: CISADM
+      driver-class-name: oracle.jdbc.driver.OracleDriver

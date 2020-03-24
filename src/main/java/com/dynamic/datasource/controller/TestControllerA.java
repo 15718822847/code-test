@@ -14,19 +14,19 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/test")
-public class TestController {
+public class TestControllerA {
     @Autowired
     private repository r;
 
     @ResponseBody
     @RequestMapping("/portal")
-    public List<OperationLog> findUserNameByTel(){
+    public List<OperationLog> findPortal(){
         return r.portal();
     }
 
     @ResponseBody
-    @RequestMapping("/portal")
-    public List<model> findUserNameByTel(@RequestParam("tel") String tel){
+    @RequestMapping("/psrm")
+    public List<model> findPSRM(){
         return r.psrm();
     }
 }
