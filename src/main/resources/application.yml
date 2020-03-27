@@ -15,3 +15,4 @@ spring:
       username: CISADM
       password: CISADM
       driver-class-name: oracle.jdbc.driver.OracleDriver
+      enabled: true
