@@ -3,10 +3,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import jdk.nashorn.internal.parser.JSONParser;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class test {
 
     public static void main(String[] args) {
-        System.out.println("11");
+        /*System.out.println("11");
         String a = "";
         if (a == null || a.isEmpty()) {
             System.out.println("---");
@@ -18,6 +21,18 @@ public class test {
         JsonElement res = object.get("result");
         JsonObject object1 =  object.getAsJsonObject("result");
         JsonElement username = object1.get("username");
-        System.out.println(object);
+        System.out.println(object);*/
+        //HashMap hashMap = new HashMap();
+        //hashMap.
+        /*Map<String, String> a = new HashMap<String, String>() {{
+            put("a","b");
+        }
+        };*/
+        Map<String, String> a = new HashMap<String, String>();
+        Map<String, String> b = new HashMap<String, String>();
+        b.put("a","b");
+        a.putAll(b);
+        Map map = MapPut.getHash((mp)->mp.put("a", "b").put("c", "d").putImpl("1","2"));
+        map.toString();
     }
 }
