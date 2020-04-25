@@ -36,4 +36,12 @@ public class repository {
         List<model> operationLog = template.queryForList(sql,map);
         return operationLog;
     }
+
+    public List<model> psrm1() {
+        String sql = "select id from declaration";
+        Map map = new HashMap();
+        map.put("a","a");
+        List<model> operationLog = template.queryForList(sql,map);
+        return operationLog;
+    }
 }

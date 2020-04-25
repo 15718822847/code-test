@@ -41,4 +41,20 @@ public class DataSourceConfig {
         targetDataSources.put(DataSourceType.SLAVE.name(), slaveDataSource());
         return new DynamicDataSource(masterDataSource(), targetDataSources);
     }
+
+    /**
+     *
+     @Bean
+     @Primary
+     @ConfigurationProperties(prefix = "spring.datasource.master")
+     public DataSourceProperties firstDataSourceProperties() {
+     return new DataSourceProperties();
+     }
+
+     @Bean
+     @ConfigurationProperties(prefix = "spring.datasource.slave")
+     public DataSourceProperties secondDataSourceProperties() {
+     return new DataSourceProperties();
+     }
+     */
 }

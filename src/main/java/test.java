@@ -28,11 +28,20 @@ public class test {
             put("a","b");
         }
         };*/
-        Map<String, String> a = new HashMap<String, String>();
+        /*Map<String, String> a = new HashMap<String, String>();
         Map<String, String> b = new HashMap<String, String>();
         b.put("a","b");
         a.putAll(b);
         Map map = MapPut.getHash((mp)->mp.put("a", "b").put("c", "d").putImpl("1","2"));
-        map.toString();
+        map.toString();*/
+
+        String a = "CN:100,CN-1:200,CN-1:200,V%:0.5";
+        int x = a.lastIndexOf(",");
+        String back = a.substring(x);
+        String front = a.substring(0,x);
+        int xx = front.lastIndexOf(",");
+        String front1 = front.substring(0,xx);
+        String result = front1+back;
+        System.out.println(result);
     }
 }

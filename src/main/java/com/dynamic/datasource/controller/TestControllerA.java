@@ -29,4 +29,10 @@ public class TestControllerA {
     public List<model> findPSRM(){
         return r.psrm();
     }
+
+    @ResponseBody
+    @RequestMapping("/psrm1")
+    public List<model> findPSRM1(){
+        return r.psrm1 ();
+    }
 }
