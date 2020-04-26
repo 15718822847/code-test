@@ -1,5 +1,5 @@
 server:
-  port: 11000
+  port: 12000
 spring:
   aop:
     auto: true #启动aop配置
@@ -16,3 +16,5 @@ spring:
       password: CISADM
       driver-class-name: oracle.jdbc.driver.OracleDriver
       enabled: true
+#解决循环依赖问题，springboot 2.1.2之后解决了
+# spring.datasource.initialize=false

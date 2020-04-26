@@ -1,9 +1,12 @@
 package com.dynamic.datasource.configuration;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.dynamic.datasource.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -17,11 +20,11 @@ import java.util.Map;
 @Configuration
 public class DataSourceConfig {
 
-    @Bean
+   @Bean
     @ConfigurationProperties("spring.datasource.master")
     public DataSource masterDataSource()
     {
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
     }
 
     @Bean(name = "slaveDataSource")
@@ -29,7 +32,7 @@ public class DataSourceConfig {
     //@ConditionalOnProperty(prefix = "spring.datasource.slave", name = "enabled", havingValue = "true")
     public DataSource slaveDataSource()
     {
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
     }
 
     @Bean(name = "dynamicDataSource")
@@ -39,6 +42,7 @@ public class DataSourceConfig {
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DataSourceType.MASTER.name(), masterDataSource());
         targetDataSources.put(DataSourceType.SLAVE.name(), slaveDataSource());
+
         return new DynamicDataSource(masterDataSource(), targetDataSources);
     }
 
